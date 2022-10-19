@@ -10,24 +10,27 @@ export const Background = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
-  p: "16rem",
+  minHeight: "100vh",
+  paddingX: 2,
 };
 
 export const Container = {
   background: "linear-gradient(180deg, #14131B 0%, #08070B 100%)",
-  maxWidth: "33.75rem",
   width: "100%",
-  height: "39.5rem",
+  maxWidth: "540px",
+  m: "1rem 0",
 };
 
 export const PasswordHeader = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.darkGrey,
-  height: "5rem",
-  padding: "1rem 2rem",
+  width: "100%",
+  padding: "1rem 2.5rem",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  "@media (max-width:425px)": {
+    padding: "1rem 1rem",
+  },
 }));
 
 export const PasswordBody = styled(Box)(({ theme }) => ({
@@ -35,7 +38,18 @@ export const PasswordBody = styled(Box)(({ theme }) => ({
   marginTop: "1.5rem",
   padding: "1.5rem 2.5rem",
   height: "33rem",
+  width: "100%",
   display: "flex",
   flexDirection: "column",
+  justifyContent: "space-between",
   alignItems: "center",
+  "@media (max-width:425px)": {
+    padding: "1rem 1rem",
+  },
+}));
+
+export const StrengthBar = styled(Box)(({ theme }) => ({
+  border: `1px solid ${theme.palette.almostWhite}`,
+  width: "0.625rem",
+  height: "1.75rem",
 }));

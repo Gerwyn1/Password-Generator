@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-const CharacterRow = ({charValue}) => {
+const CharacterRow = ({ charValue, mobile }) => {
   return (
     <Box
       sx={{
@@ -13,7 +13,7 @@ const CharacterRow = ({charValue}) => {
     >
       <Typography
         color="almostWhite"
-        variant="bodyText"
+        variant={mobile ? "mobileBodyText" : "bodyText"}
         fontWeight="bold"
         fontStyle="normal"
       >
@@ -21,7 +21,7 @@ const CharacterRow = ({charValue}) => {
       </Typography>
       <Typography
         color="neonGreen"
-        variant="headingL"
+        variant={mobile ? "headingM" : "headingL"}
         fontWeight="bold"
         fontStyle="normal"
       >

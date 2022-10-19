@@ -1,10 +1,10 @@
-import Typography from "@mui/material/Typography";
 import React from "react";
+import Typography from "@mui/material/Typography";
 
-const Password = () => {
+const Password = ({ mobile }) => {
   return (
     <Typography
-      variant="headingL"
+      variant={mobile ? "headingM" : "headingL"}
       sx={{
         opacity: "0.25",
         color: "almostWhite",

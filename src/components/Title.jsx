@@ -1,21 +1,16 @@
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-const Title = () => {
+const Title = ({ mobile }) => {
   return (
     <Typography
+      variant={mobile ? "bodyText" : "headingM"}
       color="grey"
       sx={{
-        height: "2rem",
         fontStyle: "normal",
         fontWeight: "bold",
-        fontSize: "1.5rem",
-        lineHeight: "2rem",
-        margin: "0 auto 2rem auto",
         textAlign: "center",
-        "@media (max-width: 290px)": {
-          fontSize: "1rem",
-        },
+        mt: 1,
       }}
     >
       Password Generator

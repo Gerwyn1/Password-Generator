@@ -1,6 +1,20 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export let theme = createTheme({
+  components: {
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: "18px",
+          lineHeight: "24px",
+          "@media (max-width:425px)": {
+            fontSize: "16px",
+            lineHeight: "21px",
+          },
+        },
+      },
+    },
+  },
   palette: {
     grey: "#817D92",
     darkGrey: "#24232C",
@@ -23,6 +37,10 @@ export let theme = createTheme({
     bodyText: {
       fontSize: "18px",
       lineHeight: "24px",
+    },
+    mobileBodyText: {
+      fontSize: "16px",
+      lineHeight: "21px",
     },
     fontFamily: "JetBrains Mono",
   },

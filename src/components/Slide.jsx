@@ -5,21 +5,24 @@ const Slide = ({ charValue, setCharValue }) => {
   const handleChange = (event, newValue) => {
     setCharValue(newValue);
   };
+
   return (
     <Slider
       sx={(theme) => ({
-        height: "6px",
+        height: "8px",
         borderRadius: 0,
         "& .MuiSlider-thumb": {
           backgroundColor: "almostWhite",
-          "&:hover": {
-            boxShadow: "transparent 0 0 0 0",
+          "&.Mui-focusVisible, &:hover": {
+            boxShadow: "none",
+          },
+          "&.Mui-active": {
+            backgroundColor: "veryDarkGrey",
+            border: `2px solid ${theme.palette.neonGreen}`,
+            boxShadow: "none",
           },
         },
-        "& .MuiSlider-thumb.Mui-focusVisible": {
-          boxShadow: "transparent 0 0 0 0",
-        },
-        "& .MuiSlider-track": {
+        ".MuiSlider-track": {
           backgroundColor: "neonGreen",
           border: 0,
         },
@@ -27,17 +30,13 @@ const Slide = ({ charValue, setCharValue }) => {
           backgroundColor: "veryDarkGrey",
           opacity: 1,
         },
-        "& .Mui-active": {
-          backgroundColor: "veryDarkGrey",
-          border: `2px solid ${theme.palette.neonGreen}`,
-        },
       })}
       size="medium"
       aria-label="Volume"
       value={charValue}
       onChange={handleChange}
       min={0}
-      max={128}
+      max={18}
     />
   );
 };
