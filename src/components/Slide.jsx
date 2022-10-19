@@ -12,9 +12,11 @@ const Slide = ({ charValue, setCharValue }) => {
         borderRadius: 0,
         "& .MuiSlider-thumb": {
           backgroundColor: "almostWhite",
+          "&:hover": {
+            boxShadow: "transparent 0 0 0 0",
+          },
         },
         "& .MuiSlider-thumb.Mui-focusVisible": {
-          backgroundColor: "veryDarkGrey",
           boxShadow: "transparent 0 0 0 0",
         },
         "& .MuiSlider-track": {
@@ -29,9 +31,6 @@ const Slide = ({ charValue, setCharValue }) => {
           backgroundColor: "veryDarkGrey",
           border: `2px solid ${theme.palette.neonGreen}`,
         },
-        // "& .Mui-focusVisible": {
-        //   boxShadow: "transparent 0 0 0 0",
-        // },  
       })}
       size="medium"
       aria-label="Volume"
