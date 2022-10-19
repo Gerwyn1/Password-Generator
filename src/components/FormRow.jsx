@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
 
-const FormRow = ({ value, included, handleIncludedChange }) => {
+import { UserContext } from "../context/UserContext";
+
+const FormRow = ({ value }) => {
+  const { included, handleIncludedChange } = useContext(UserContext);
+
   return (
     <FormControlLabel
       sx={{

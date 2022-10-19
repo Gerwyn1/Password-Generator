@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { StrengthBar } from "../styled/styled";
 
-const Strength = ({ mobile }) => {
+import { StrengthBar } from "../styled/styled";
+import { UserContext } from "../context/UserContext";
+
+const Strength = () => {
+  const { mobile } = useContext(UserContext);
+
   return (
     <Box
       sx={{

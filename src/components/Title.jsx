@@ -1,7 +1,10 @@
+import React, { useContext } from "react";
 import Typography from "@mui/material/Typography";
-import React from "react";
 
-const Title = ({ mobile }) => {
+import { UserContext } from "../context/UserContext";
+
+const Title = () => {
+  const { mobile } = useContext(UserContext);
   return (
     <Typography
       variant={mobile ? "bodyText" : "headingM"}

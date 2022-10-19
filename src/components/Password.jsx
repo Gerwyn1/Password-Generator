@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Typography from "@mui/material/Typography";
 
-const Password = ({ mobile }) => {
+import { UserContext } from "../context/UserContext";
+
+const Password = () => {
+  const { mobile } = useContext(UserContext);
+
   return (
     <Typography
       variant={mobile ? "headingM" : "headingL"}

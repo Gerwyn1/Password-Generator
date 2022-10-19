@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from "@mui/material/Box";
 
-const CopyIcon = ({ mobile }) => {
+import { UserContext } from "../context/UserContext";
+
+const CopyIcon = () => {
+  const { mobile } = useContext(UserContext);
+
   return (
     <Box
       sx={(theme) => ({

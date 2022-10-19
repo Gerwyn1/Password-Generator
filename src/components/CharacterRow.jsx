@@ -1,7 +1,11 @@
+import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
-import React from "react";
 
-const CharacterRow = ({ charValue, mobile }) => {
+import { UserContext } from "../context/UserContext";
+
+const CharacterRow = ({ charValue }) => {
+  const { mobile } = useContext(UserContext);
+
   return (
     <Box
       sx={{
