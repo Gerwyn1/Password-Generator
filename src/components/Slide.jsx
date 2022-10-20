@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "@mui/material/Slider";
 
-const Slide = ({ charValue, setCharValue }) => {
+import { UserContext } from "../context/UserContext";
+
+const Slide = () => {
+  const { charValue, setCharValue } = useContext(UserContext);
+
   const handleChange = (event, newValue) => {
     setCharValue(newValue);
   };

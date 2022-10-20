@@ -3,8 +3,8 @@ import { Box, Typography } from "@mui/material";
 
 import { UserContext } from "../context/UserContext";
 
-const CharacterRow = ({ charValue }) => {
-  const { mobile } = useContext(UserContext);
+const CharacterRow = () => {
+  const { mobile, charValue } = useContext(UserContext);
 
   return (
     <Box
