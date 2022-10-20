@@ -1,9 +1,7 @@
 import { useState, createContext } from "react";
 import { useMediaQuery } from "@mui/material";
 
-export const UserContext = createContext({
-    included: []
-});
+export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
   const mobile = useMediaQuery("(max-width:425px)");
@@ -23,7 +21,7 @@ export function UserContextProvider({ children }) {
         included,
         handleIncludedChange,
         charValue,
-        setCharValue
+        setCharValue,
       }}
     >
       {children}

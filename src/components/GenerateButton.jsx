@@ -40,7 +40,7 @@ const GenerateButton = ({ setPassword }) => {
       >
         Generate
       </Typography>
-      <Box marginLeft={3}>
+      <Box ml={3} mt={0.3}>
         <svg
           width="0.75rem"
           height="0.75rem"

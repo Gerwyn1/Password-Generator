@@ -1,7 +1,10 @@
+const characters = [...Array(95).keys()]
+  .map((i) => String.fromCharCode(i + 32))
+  .filter((char) => char !== " ");
+
 export const generatePassword = (charValue, setPassword, included) => {
-  const characters = [...Array(95).keys()]
-    .map((i) => String.fromCharCode(i + 32))
-    .filter((char) => char !== " " && char !== "<" && char !== ">");
+console.log(characters);
+
   const password = [];
 
   if (included.length === 0 || charValue === 0) {
@@ -31,7 +34,7 @@ export const generatePassword = (charValue, setPassword, included) => {
         }
       }
       if (included?.includes("Include Symbols")) {
-        if (/[\\@#$-/:-?{-~!"^_`\[\]]/.test(pickedChar)) {
+        if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(pickedChar)) {
           password.push(pickedChar);
           continue;
         }

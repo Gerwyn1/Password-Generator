@@ -1,11 +1,27 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
 import { StrengthBar } from "../styled/styled";
 import { UserContext } from "../context/UserContext";
 
-const Strength = () => {
-  const { mobile } = useContext(UserContext);
+export const gaugeStrength = (password, setStrength) => {
+  if (password.length < 6) {
+    setStrength("TOO WEAK");
+    return;
+  } else {
+    if (/[\w]{6}/.test(password)) setStrength("TOO RAW");
+    else if (/[\w\d`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]{6}/.test(password)) setStrength("TOO RARE");
+  }
+};
+
+const Strength = ({ password }) => {
+  const { mobile, included, charValue } = useContext(UserContext);
+  const [strength, setStrength] = useState("TOO WEAK");
+
+  useEffect(() => {
+    gaugeStrength(password, setStrength);
+    // eslint-disable-next-line
+  }, [included, charValue]);
 
   return (
     <Box
@@ -42,7 +58,7 @@ const Strength = () => {
             },
           }}
         >
-          MEDIUM
+          {strength}
         </Typography>
         <Stack direction="row" gap="0.5rem">
           <StrengthBar backgroundColor="transparent"></StrengthBar>

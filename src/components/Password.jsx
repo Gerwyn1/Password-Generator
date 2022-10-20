@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { UserContext } from "../context/UserContext";
 
 const Password = ({ password }) => {
-  const { mobile, included, charValue } = useContext(UserContext);
+  const { mobile } = useContext(UserContext);
 
   return (
     <Typography

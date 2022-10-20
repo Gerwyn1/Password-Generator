@@ -21,7 +21,7 @@ import {
 
 export default function Home() {
   const [password, setPassword] = useState("P4$5W0rD!");
-  console.log(password)
+
   return (
     <Box sx={Background}>
       <Head>
@@ -43,7 +43,7 @@ export default function Home() {
             <FormRow value="Include Numbers" />
             <FormRow value="Include Symbols" />
           </FormGroup>
-          <Strength />
+          <Strength password={password} />
           <GenerateButton setPassword={setPassword} />
         </PasswordBody>
       </Box>
