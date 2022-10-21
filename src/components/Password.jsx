@@ -3,12 +3,13 @@ import Typography from "@mui/material/Typography";
 
 import { UserContext } from "../context/UserContext";
 
-const Password = ({ password }) => {
-  const { mobile } = useContext(UserContext);
+const Password = () => {
+  const { mobile, password } = useContext(UserContext);
 
   return (
     <Typography
       variant={mobile ? "headingM" : "headingL"}
+      noWrap
       sx={{
         opacity: password === "P4$5W0rD!" ? "0.25" : "1",
         color: "almostWhite",

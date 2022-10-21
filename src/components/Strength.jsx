@@ -5,8 +5,9 @@ import { StrengthBar } from "../styled/styled";
 import { UserContext } from "../context/UserContext";
 import { generatePassword, gaugeStrength, barColor } from "../utils/utils";
 
-const Strength = ({ setPassword, placeholder }) => {
-  const { mobile, included, charValue } = useContext(UserContext);
+const Strength = () => {
+  const { mobile, included, charValue, setPassword, placeholder } =
+    useContext(UserContext);
   const [strength, setStrength] = useState("TOO WEAK");
 
   useEffect(() => {
@@ -26,6 +27,10 @@ const Strength = ({ setPassword, placeholder }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        gap: 1,
+        "@media (max-width:300px)": {
+          gap: 0.2,
+        },
       }}
     >
       <Typography
@@ -40,11 +45,11 @@ const Strength = ({ setPassword, placeholder }) => {
       </Typography>
       <Stack
         sx={{
-          gap: "1rem",
+          gap: 1,
           flexDirection: "row",
           alignItems: "center",
-          "@media (max-width:290px)": {
-            gap: 0,
+          "@media (max-width:300px)": {
+            gap: 0.5,
           },
         }}
       >
@@ -57,10 +62,6 @@ const Strength = ({ setPassword, placeholder }) => {
             "@media (max-width:325px)": {
               fontSize: "16px",
               lineHeight: "21px",
-              ml: 1,
-            },
-            "@media (max-width:300px)": {
-              ml: 0,
             },
           }}
         >

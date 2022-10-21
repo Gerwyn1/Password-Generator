@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Head from "next/head";
 import { Box, FormGroup } from "@mui/material";
 
@@ -20,8 +20,6 @@ import {
 } from "../src/components";
 
 export default function Home() {
-  const [password, setPassword] = useState("P4$5W0rD!");
-  const placeholder = useRef();
   return (
     <Box sx={Background}>
       <Head>
@@ -31,7 +29,7 @@ export default function Home() {
       <Title />
       <Box sx={Container}>
         <PasswordHeader>
-          <Password password={password} />
+          <Password />
           <CopyIcon />
         </PasswordHeader>
         <PasswordBody>
@@ -43,8 +41,8 @@ export default function Home() {
             <FormRow value="Include Numbers" />
             <FormRow value="Include Symbols" />
           </FormGroup>
-          <Strength setPassword={setPassword} placeholder={placeholder} />
-          <GenerateButton setPassword={setPassword} placeholder={placeholder} />
+          <Strength />
+          <GenerateButton />
         </PasswordBody>
       </Box>
     </Box>

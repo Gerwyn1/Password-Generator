@@ -2,7 +2,8 @@ const characters = [...Array(95).keys()]
   .map((i) => String.fromCharCode(i + 32))
   .filter((char) => char !== " ");
 
-export const handleShowIcon = (setShowIcon) => {
+export const handleShowCopy = (setShowIcon, password) => {
+  navigator.clipboard.writeText(password);
   setShowIcon("block");
   setTimeout(() => setShowIcon("none"), 1500);
 };
