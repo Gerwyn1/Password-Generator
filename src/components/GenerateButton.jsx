@@ -4,7 +4,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { UserContext } from "../context/UserContext";
 import { generatePassword } from "../utils/utils";
 
-const GenerateButton = ({ placeholder }) => {
+const GenerateButton = ({ setPassword, placeholder }) => {
   const { included, charValue } = useContext(UserContext);
   return (
     <Button

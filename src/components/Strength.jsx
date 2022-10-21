@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { StrengthBar } from "../styled/styled";
 import { UserContext } from "../context/UserContext";
-import { generatePassword, gaugeStrength } from "../utils/utils";
+import { generatePassword, gaugeStrength, barColor } from "../utils/utils";
 
 const Strength = ({ setPassword, placeholder }) => {
   const { mobile, included, charValue } = useContext(UserContext);
@@ -38,7 +38,16 @@ const Strength = ({ setPassword, placeholder }) => {
       >
         STRENGTH
       </Typography>
-      <Stack direction="row" alignItems="center" gap="1rem">
+      <Stack
+        sx={{
+          gap: "1rem",
+          flexDirection: "row",
+          alignItems: "center",
+          "@media (max-width:290px)": {
+            gap: 0,
+          },
+        }}
+      >
         <Typography
           variant={mobile ? "bodyText" : "headingM"}
           sx={{
@@ -50,15 +59,18 @@ const Strength = ({ setPassword, placeholder }) => {
               lineHeight: "21px",
               ml: 1,
             },
+            "@media (max-width:300px)": {
+              ml: 0,
+            },
           }}
         >
           {strength}
         </Typography>
         <Stack direction="row" gap="0.5rem">
-          <StrengthBar backgroundColor="transparent"></StrengthBar>
-          <StrengthBar backgroundColor="transparent"></StrengthBar>
-          <StrengthBar backgroundColor="transparent"></StrengthBar>
-          <StrengthBar backgroundColor="transparent"></StrengthBar>
+          <StrengthBar backgroundColor={barColor(strength, 1)}></StrengthBar>
+          <StrengthBar backgroundColor={barColor(strength, 2)}></StrengthBar>
+          <StrengthBar backgroundColor={barColor(strength, 3)}></StrengthBar>
+          <StrengthBar backgroundColor={barColor(strength, 4)}></StrengthBar>
         </Stack>
       </Stack>
     </Box>

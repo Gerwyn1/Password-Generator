@@ -1,18 +1,43 @@
-import React, { useContext } from "react";
-import Box from "@mui/material/Box";
+import React, { useState, useContext } from "react";
+import { Box, Typography } from "@mui/material";
 
 import { UserContext } from "../context/UserContext";
+import { handleShowIcon } from "../utils/utils";
 
 const CopyIcon = () => {
   const { mobile } = useContext(UserContext);
+  const [showIcon, setShowIcon] = useState("none");
 
   return (
     <Box
+      onClick={() => handleShowIcon(setShowIcon)}
       sx={(theme) => ({
+        gap: 2.5,
+        display: "flex",
+        alignItems: "center",
         cursor: "pointer",
         "&:hover path": { fill: theme.palette.almostWhite },
       })}
     >
+      <Typography
+        variant="bodyText"
+        sx={{
+          fontStyle: "normal",
+          fontWeight: "bold",
+          color: "neonGreen",
+          display: showIcon,
+          // "@media (max-width:558px)": {
+          //   display: "block",
+          // },
+        }}
+      >
+        COPIED
+      </Typography>
+      <Box sx={{
+        "@media (max-width:558px)": {
+            display: showIcon === 'block' ? "none" : 'block'
+          },
+      }}>
       <svg
         width={mobile ? "1.0625rem" : "1.3125rem"}
         height={mobile ? "1.25rem" : "1.5rem"}
@@ -27,6 +52,8 @@ const CopyIcon = () => {
           fill="#A4FFAF"
         />
       </svg>
+
+      </Box>
     </Box>
   );
 };

@@ -2,6 +2,44 @@ const characters = [...Array(95).keys()]
   .map((i) => String.fromCharCode(i + 32))
   .filter((char) => char !== " ");
 
+export const handleShowIcon = (setShowIcon) => {
+  setShowIcon("block");
+  setTimeout(() => setShowIcon("none"), 1500);
+};
+
+export const barColor = (strength, num) => {
+  if (num === 1) {
+    return strength === "STRONG"
+      ? "neonGreen"
+      : strength === "MEDIUM"
+      ? "yellow"
+      : strength === "WEAK"
+      ? "orange"
+      : strength === "TOO WEAK"
+      ? "red"
+      : "transparent";
+  }
+  if (num === 2) {
+    return strength === "STRONG"
+      ? "neonGreen"
+      : strength === "MEDIUM"
+      ? "yellow"
+      : strength === "WEAK"
+      ? "orange"
+      : "transparent";
+  }
+  if (num === 3) {
+    return strength === "STRONG"
+      ? "neonGreen"
+      : strength === "MEDIUM"
+      ? "yellow"
+      : "transparent";
+  }
+  if (num === 4) {
+    return strength === "STRONG" ? "neonGreen" : "transparent";
+  }
+};
+
 export const generatePassword = (charValue, included) => {
   const password = [];
   console.log(characters);

@@ -44,7 +44,7 @@ export default function Home() {
             <FormRow value="Include Symbols" />
           </FormGroup>
           <Strength setPassword={setPassword} placeholder={placeholder} />
-          <GenerateButton placeholder={placeholder} />
+          <GenerateButton setPassword={setPassword} placeholder={placeholder} />
         </PasswordBody>
       </Box>
     </Box>

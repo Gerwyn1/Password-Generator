@@ -24,7 +24,7 @@ export const Container = {
 export const PasswordHeader = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.darkGrey,
   width: "100%",
-  padding: "1rem 2.5rem",
+  padding: "1rem 2rem",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -36,7 +36,7 @@ export const PasswordHeader = styled(Box)(({ theme }) => ({
 export const PasswordBody = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.darkGrey,
   marginTop: "1.5rem",
-  padding: "1.5rem 2.5rem",
+  padding: "1.5rem 2rem",
   height: "33rem",
   width: "100%",
   display: "flex",
