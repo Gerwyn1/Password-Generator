@@ -3,23 +3,15 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { StrengthBar } from "../styled/styled";
 import { UserContext } from "../context/UserContext";
+import { generatePassword, gaugeStrength} from "../utils/utils";
 
-export const gaugeStrength = (password, setStrength) => {
-  if (password.length < 6) {
-    setStrength("TOO WEAK");
-    return;
-  } else {
-    if (/[\w]{6}/.test(password)) setStrength("TOO RAW");
-    else if (/[\w\d`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]{6}/.test(password)) setStrength("TOO RARE");
-  }
-};
-
-const Strength = ({ password }) => {
+const Strength = ({ password, setPassword, placeholder }) => {
   const { mobile, included, charValue } = useContext(UserContext);
   const [strength, setStrength] = useState("TOO WEAK");
 
   useEffect(() => {
-    gaugeStrength(password, setStrength);
+    placeholder.current = generatePassword(charValue, included, setPassword)
+    gaugeStrength(placeholder.current, setStrength);
     // eslint-disable-next-line
   }, [included, charValue]);
 

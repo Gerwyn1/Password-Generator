@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-import { generatePassword } from "../utils/utils";
 import { UserContext } from "../context/UserContext";
+import { generatePassword } from "../utils/utils";
 
-const GenerateButton = ({ setPassword }) => {
-  const { charValue, included } = useContext(UserContext);
-
+const GenerateButton = ({ setPassword, placeholder }) => {
+  const { included, charValue } = useContext(UserContext);
   return (
     <Button
-      onClick={() => generatePassword(charValue, setPassword, included)}
+      onClick={() => {
+        setPassword(() => {
+          placeholder.current = generatePassword(charValue, included,  setPassword);
+          return placeholder.current;
+        });
+      }}
       disableRipple={true}
       sx={(theme) => ({
         backgroundColor: "neonGreen",
