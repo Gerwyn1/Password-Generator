@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
-  const mobile = useMediaQuery("(max-width:425px)");
+  const mobile = useMediaQuery("(max-width:458px)");
   const [included, setIncluded] = useState([]);
   const [charValue, setCharValue] = useState(0);
 

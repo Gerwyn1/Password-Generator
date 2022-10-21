@@ -3,15 +3,15 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { StrengthBar } from "../styled/styled";
 import { UserContext } from "../context/UserContext";
-import { generatePassword, gaugeStrength} from "../utils/utils";
+import { generatePassword, gaugeStrength } from "../utils/utils";
 
-const Strength = ({ password, setPassword, placeholder }) => {
+const Strength = ({ setPassword, placeholder }) => {
   const { mobile, included, charValue } = useContext(UserContext);
   const [strength, setStrength] = useState("TOO WEAK");
 
   useEffect(() => {
-    placeholder.current = generatePassword(charValue, included, setPassword)
-    gaugeStrength(placeholder.current, setStrength);
+    placeholder.current = generatePassword(charValue, included, setPassword);
+    gaugeStrength(placeholder.current, setStrength, charValue, included);
     // eslint-disable-next-line
   }, [included, charValue]);
 
@@ -38,15 +38,17 @@ const Strength = ({ password, setPassword, placeholder }) => {
       >
         STRENGTH
       </Typography>
-      <Stack direction="row" gap="1rem">
+      <Stack direction="row" alignItems="center" gap="1rem">
         <Typography
           variant={mobile ? "bodyText" : "headingM"}
           sx={{
             color: "almostWhite",
             fontStyle: "normal",
             fontWeight: "bold",
-            "@media (max-width:300px)": {
-              display: "none",
+            "@media (max-width:325px)": {
+              fontSize: "16px",
+              lineHeight: "21px",
+              ml: 1,
             },
           }}
         >
