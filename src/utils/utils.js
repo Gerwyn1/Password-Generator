@@ -43,7 +43,6 @@ export const barColor = (strength, num) => {
 
 export const generatePassword = (charValue, included) => {
   const password = [];
-  console.log(characters);
   if (included.length === 0 || charValue === 0) {
     return "P4$5W0rD!";
   } else {
@@ -82,7 +81,6 @@ export const generatePassword = (charValue, included) => {
 };
 
 export const gaugeStrength = (text, setStrength, charValue, included) => {
-  console.log(text);
   if (charValue === 0 || included.length === 0) return setStrength("");
   const length = text.length;
   if (length < 9) {
